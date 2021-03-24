@@ -1,4 +1,4 @@
-package com.trendyol;
+package com.trendyol.selenium;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;

@@ -1,4 +1,4 @@
-package com.trendyol.bootcamp;
+package com.trendyol.selenium;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

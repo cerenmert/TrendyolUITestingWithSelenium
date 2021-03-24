@@ -1,4 +1,4 @@
-package Pages;
+package com.trendyol.selenium.Pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -13,7 +13,7 @@ public class HomePage extends BasePage {
     public HomePage(WebDriver webDriver) {
         super(webDriver);
         //bir üst class'taki constructor'a gitmek için super() methodu kullanılır.
-        // extend ettiği class'taki constructor'a gider, yani burda Pages.BasePage'e gider ordaki methodu kullanır.
+        // extend ettiği class'taki constructor'a gider, yani burda com.trendyol.com.trendyol.com.trendyol.Pages.BasePage'e gider ordaki methodu kullanır.
     }
 
     public void waitForLoad() {
