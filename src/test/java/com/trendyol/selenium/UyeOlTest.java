@@ -12,6 +12,7 @@ public class UyeOlTest extends  BaseTest {
         UyeOlPage x= homePage.getUyeOl();
         x.uyeOl();
         Thread.sleep(10000);
+        homePage.closeModal();
+        Thread.sleep(5000);
     }
-
 }

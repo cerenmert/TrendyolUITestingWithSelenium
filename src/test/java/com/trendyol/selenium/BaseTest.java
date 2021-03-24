@@ -1,5 +1,7 @@
 package com.trendyol.selenium;
 
+import com.trendyol.selenium.Pages.HomePage;
+import com.trendyol.selenium.Pages.UyeOlPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -54,6 +56,16 @@ public class BaseTest {
             // işin bitince browser'ı kapat methodu
             // bu testleri kendi localimizde koşmuyoruz normalde
             // eğer browser'ı test sonunda kapatmazsak, bir süre sonra out of memory hatası alırız.
+        }
+
+        public HomePage uyeOlAndGoHome() throws InterruptedException {
+            HomePage homePage= new HomePage(webDriver);
+            UyeOlPage x= homePage.getUyeOl();
+            x.uyeOl();
+            Thread.sleep(10000);
+            homePage.closeModal();
+            Thread.sleep(5000);
+            return new HomePage(webDriver);
         }
 
     }

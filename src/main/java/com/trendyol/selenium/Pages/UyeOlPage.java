@@ -19,7 +19,7 @@ public class UyeOlPage extends BasePage{
     }
 
     public HomePage uyeOl(){
-        String email= "xcl59904@cuoly.com";
+        String email= "gep21355@eoopy.com";
         String password= "Password1234";
         webDriver.findElement(emailBy).sendKeys(email);
         webDriver.findElement(passwordBy).sendKeys(password);

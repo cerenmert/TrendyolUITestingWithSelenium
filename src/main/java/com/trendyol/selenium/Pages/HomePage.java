@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class HomePage extends BasePage {
 
     By componentListBy = By.className("component-list");
+    By closeModalBy= By.cssSelector(".modal-close");
 
     // constructor is created.
     public HomePage(WebDriver webDriver) {
@@ -21,6 +22,8 @@ public class HomePage extends BasePage {
         wait.until(ExpectedConditions.visibilityOfElementLocated(componentListBy));
     }
 
-
+    public void closeModal(){
+        webDriver.findElement(closeModalBy).click();
+    }
 
 }
