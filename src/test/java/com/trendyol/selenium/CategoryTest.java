@@ -9,7 +9,9 @@ public class CategoryTest extends BaseTest {
     @Test
     public void ChoseCategoryAndClick() throws InterruptedException {
         HomePage homePage = this.uyeOlAndGoHome();
+//        HomePage homePage = new HomePage(webDriver);
         ProductResultPage productResultPage = homePage.choseCategory();
-        productResultPage.pageScrool();
+        productResultPage.pageScroll();
+        Thread.sleep(10000);
     }
 }

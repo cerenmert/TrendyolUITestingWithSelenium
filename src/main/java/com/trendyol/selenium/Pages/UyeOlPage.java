@@ -16,8 +16,13 @@ public class UyeOlPage extends BasePage {
         // extend ettiği class'taki constructor'a gider, yani burda BasePage'e gider ordaki methodu kullanır.
     }
 
+    public int getRandomNumber(int min, int max) {
+        return (int) ((Math.random() * (max - min)) + min);
+    }
+
     public HomePage uyeOl() {
-        String email = "ume43106@eoopy.com";
+        //String email = "mvf01609@eoopy.com";
+        String email = "test." + getRandomNumber(1000, 9999) + "@eoopy.com";
         String password = "Password1234";
         webDriver.findElement(emailBy).sendKeys(email);
         webDriver.findElement(passwordBy).sendKeys(password);

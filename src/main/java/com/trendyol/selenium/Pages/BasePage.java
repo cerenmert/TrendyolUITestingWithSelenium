@@ -10,8 +10,8 @@ public class BasePage extends WebDriverHelper {
 
     By girisYapButtonBy = By.cssSelector(".account-user");
     By uyeOlButtonBy = By.cssSelector(".signup-button");
-    By clickElectronicTab = By.cssSelector(" li:nth-of-type(9) > .category-header");
-    By tvGoruntuSesSistemleriBy = By.cssSelector("li:nth-of-type(9) > .sub-nav  .sub-nav-outer > div:nth-of-type(3) > div:nth-of-type(1) > .sub-category-header");
+    By clickElectronicTab = By.cssSelector(".tab-link:nth-of-type(9) > .category-header");
+    By tvGoruntuSesSistemleriBy = By.cssSelector(".tab-link:nth-of-type(9) > .sub-nav  .sub-nav-outer > div:nth-of-type(3) > div:nth-of-type(1) > .sub-category-header");
 
 
     public BasePage(WebDriver webDriver) {
