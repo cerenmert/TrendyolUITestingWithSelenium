@@ -10,8 +10,8 @@ public class BasePage extends WebDriverHelper {
 
     By girisYapButtonBy = By.cssSelector(".account-user");
     By uyeOlButtonBy = By.cssSelector(".signup-button");
-    By clickCategoryBy= By.id("sub-nav-5");
-    By tvGoruntuSesSistemleriBy= By.linkText("TV & Görüntü & Ses");
+    By clickElectronicTab = By.cssSelector(" li:nth-of-type(9) > .category-header");
+    By tvGoruntuSesSistemleriBy = By.cssSelector("li:nth-of-type(9) > .sub-nav  .sub-nav-outer > div:nth-of-type(3) > div:nth-of-type(1) > .sub-category-header");
 
 
     public BasePage(WebDriver webDriver) {
@@ -29,13 +29,12 @@ public class BasePage extends WebDriverHelper {
     }
 
     public ProductResultPage choseCategory() throws InterruptedException {
-        WebElement ele = webDriver.findElement(clickCategoryBy);
+        WebElement ele = webDriver.findElement(clickElectronicTab);
         Actions actions = new Actions(webDriver);
         actions.moveToElement(ele).perform();
         Thread.sleep(8000);
         webDriver.findElement(tvGoruntuSesSistemleriBy).click();
         return new ProductResultPage(webDriver);
-
 
     }
 

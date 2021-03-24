@@ -11,32 +11,30 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
-        WebDriver webDriver;
+    WebDriver webDriver;
 
-        @BeforeMethod
-        public void startUp() {
-            ChromeOptions options = new ChromeOptions();
-            options.addArguments("--disable-notifications");
-            options.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
-            // sayfada "bu browser ChromeDriver tarafından otomatize ediliyor" gibi bir yazı çıkmasını engelliyor.
+    @BeforeMethod
+    public void startUp() {
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--disable-notifications");
+        options.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
+        // sayfada "bu browser ChromeDriver tarafından otomatize ediliyor" gibi bir yazı çıkmasını engelliyor.
 
-            //System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
-            WebDriverManager.chromedriver().setup(); //bonigarcia
-            webDriver = new ChromeDriver(options);
-            webDriver.manage().window().maximize();
+        //System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
+        WebDriverManager.chromedriver().setup(); //bonigarcia
+        webDriver = new ChromeDriver(options);
+        webDriver.manage().window().maximize();
 
-            webDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-            //implicitWait kullanımı çok fazla tavsiye edilmez, hatta Selenium geliştiricilerini keşke geliştirmeseydik dedikleri şey.
-            //explicitWait tercih edilmeli.
-            webDriver.get("https://www.trendyol.com/");
-            WebElement closeButton = webDriver.findElement(By.className("fancybox-close"));
-            closeButton.click();
-        }
+        webDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        //implicitWait kullanımı çok fazla tavsiye edilmez, hatta Selenium geliştiricilerini keşke geliştirmeseydik dedikleri şey.
+        //explicitWait tercih edilmeli.
+        webDriver.get("https://www.trendyol.com/");
+        WebElement closeButton = webDriver.findElement(By.className("fancybox-close"));
+        closeButton.click();
+    }
 
 //        public void disableChromeToSavePassword(){
 //            ChromeOptions options = new ChromeOptions();
@@ -49,23 +47,23 @@ public class BaseTest {
 //            options.setExperimentalOption("prefs", prefs);
 //        }
 
-        @AfterMethod
-        public void tearDown() {
-
-            webDriver.quit();
-            // işin bitince browser'ı kapat methodu
-            // bu testleri kendi localimizde koşmuyoruz normalde
-            // eğer browser'ı test sonunda kapatmazsak, bir süre sonra out of memory hatası alırız.
-        }
-
-        public HomePage uyeOlAndGoHome() throws InterruptedException {
-            HomePage homePage= new HomePage(webDriver);
-            UyeOlPage x= homePage.getUyeOl();
-            x.uyeOl();
-            Thread.sleep(10000);
-            homePage.closeModal();
-            Thread.sleep(5000);
-            return new HomePage(webDriver);
-        }
-
+    public HomePage uyeOlAndGoHome() throws InterruptedException {
+        HomePage homePage = new HomePage(webDriver);
+        UyeOlPage x = homePage.getUyeOl();
+        x.uyeOl();
+        Thread.sleep(10000);
+        homePage.closeModal();
+        Thread.sleep(5000);
+        return new HomePage(webDriver);
     }
+
+    @AfterMethod
+    public void tearDown() {
+
+        webDriver.quit();
+        // işin bitince browser'ı kapat methodu
+        // bu testleri kendi localimizde koşmuyoruz normalde
+        // eğer browser'ı test sonunda kapatmazsak, bir süre sonra out of memory hatası alırız.
+    }
+
+}
