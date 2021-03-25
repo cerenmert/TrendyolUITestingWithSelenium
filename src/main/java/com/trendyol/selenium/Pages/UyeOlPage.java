@@ -1,5 +1,6 @@
 package com.trendyol.selenium.Pages;
 
+import com.trendyol.selenium.Users.User;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -20,12 +21,12 @@ public class UyeOlPage extends BasePage {
         return (int) ((Math.random() * (max - min)) + min);
     }
 
-    public HomePage uyeOl() {
+    public HomePage uyeOl(User user) {
+        //String email = "test." + getRandomNumber(1000, 9999) + "@eoopy.com";
         //String email = "mvf01609@eoopy.com";
-        String email = "test." + getRandomNumber(1000, 9999) + "@eoopy.com";
-        String password = "Password1234";
-        webDriver.findElement(emailBy).sendKeys(email);
-        webDriver.findElement(passwordBy).sendKeys(password);
+        //String password = "Password1234";
+        webDriver.findElement(emailBy).sendKeys(user.getEmail());
+        webDriver.findElement(passwordBy).sendKeys(user.getPassword());
         webDriver.findElement(submitButtonBy).click();
         return new HomePage(webDriver);
     }
