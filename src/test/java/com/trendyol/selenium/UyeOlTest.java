@@ -14,8 +14,7 @@ public class UyeOlTest extends BaseTest {
         UyeOlPage x = homePage.getUyeOl();
         User user= UserPool.getUser1();
         x.uyeOl(user);
-        Thread.sleep(10000);
         homePage.closeModal();
-        Thread.sleep(5000);
+        Thread.sleep(3000);
     }
 }

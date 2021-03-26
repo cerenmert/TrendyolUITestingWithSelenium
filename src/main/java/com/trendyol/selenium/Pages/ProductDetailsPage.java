@@ -14,11 +14,11 @@ public class ProductDetailsPage extends BasePage {
     }
 
     public void AddToBasket() {
-        webDriver.findElement(addToBasketBy).click();
+       click(addToBasketBy,2);
     }
 
     public boolean isAddedToBasketTitleDisplayed() {
-        webDriver.findElement(addedToBasketBy).isDisplayed();
+        isDisplayed(addedToBasketBy,3);
         return true;
     }
 }

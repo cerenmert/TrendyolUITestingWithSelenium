@@ -23,7 +23,7 @@ public class HomePage extends BasePage {
     }
 
     public void closeModal() {
-        webDriver.findElement(closeModalBy).click();
+        click(closeModalBy,10);
     }
 
 }

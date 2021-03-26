@@ -12,7 +12,7 @@ public class BasePage extends WebDriverHelper {
     By uyeOlButtonBy = By.cssSelector(".signup-button");
     By clickElectronicTab = By.cssSelector(".tab-link:nth-of-type(9) > .category-header");
     By tvGoruntuSesSistemleriBy = By.cssSelector(".tab-link:nth-of-type(9) > .sub-nav  .sub-nav-outer > div:nth-of-type(3) > div:nth-of-type(1) > .sub-category-header");
-    By myBasketButtonBy= By.cssSelector(".link.account-basket");
+    By myBasketButtonBy = By.cssSelector(".link.account-basket");
 
     public BasePage(WebDriver webDriver) {
         super(webDriver);
@@ -29,18 +29,16 @@ public class BasePage extends WebDriverHelper {
     }
 
     public ProductResultPage choseCategory() throws InterruptedException {
-        WebElement ele = webDriver.findElement(clickElectronicTab);
+        WebElement elect = webDriver.findElement(clickElectronicTab);
         Actions actions = new Actions(webDriver);
-        actions.moveToElement(ele).perform();
-        Thread.sleep(8000);
-        webDriver.findElement(tvGoruntuSesSistemleriBy).click();
+        actions.moveToElement(elect).perform();
+        click(tvGoruntuSesSistemleriBy, 20);
         return new ProductResultPage(webDriver);
     }
 
-    public MyBasketPage goToMyBasketPage(){
-        webDriver.findElement(myBasketButtonBy).click();
+    public MyBasketPage goToMyBasketPage() {
+        click(myBasketButtonBy, 2);
         return new MyBasketPage(webDriver);
     }
-
 
 }

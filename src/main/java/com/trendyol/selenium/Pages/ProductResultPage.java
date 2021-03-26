@@ -4,7 +4,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.List;
 import java.util.Set;
@@ -25,6 +24,7 @@ public class ProductResultPage extends BasePage {
         jse.executeScript("window.scrollBy(0,2000)");
         Thread.sleep(2500);
     }
+
     public ProductDetailsPage viewProductDetails(int index) {
         List<WebElement> allProducts = webDriver.findElements(productDetailBy);
         allProducts.get(index).click();
@@ -33,6 +33,7 @@ public class ProductResultPage extends BasePage {
         // bu yüzden getWindowHandle yapmamız lazım.
         return new ProductDetailsPage(webDriver);
     }
+
     public void switchWindow() {
         Set<String> windows = webDriver.getWindowHandles();
         webDriver.switchTo().window(windows.toArray()[windows.toArray().length - 1].toString());

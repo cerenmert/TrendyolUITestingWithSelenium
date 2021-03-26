@@ -14,13 +14,13 @@ public class RemoveBasketForm extends BasePage {
     }
 
     public boolean productNameIsDisplayed() {
-        webDriver.findElement(removeBasketFormBy).isDisplayed();
-        webDriver.findElement(productName).isDisplayed();
+        isDisplayed(removeBasketFormBy,3);
+        isDisplayed(productName,3);
         return true;
     }
 
     public void confirmRemove() {
-        webDriver.findElement(deleteButtonOnTheFormPage).click();
+        click(deleteButtonOnTheFormPage,5);
     }
 }
 

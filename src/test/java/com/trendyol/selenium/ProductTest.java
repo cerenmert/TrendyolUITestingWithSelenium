@@ -1,7 +1,6 @@
 package com.trendyol.selenium;
 
 import com.trendyol.selenium.Pages.*;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -11,26 +10,25 @@ import static org.hamcrest.Matchers.is;
 public class ProductTest extends BaseTest {
 
     @Test
-    public ProductDetailsPage ChoseCategoryAndClick() throws InterruptedException {
+    public void ChoseCategoryAndClick() throws InterruptedException {
         HomePage homePage = this.uyeOlAndGoHome();
-        //HomePage homePage = new HomePage(webDriver);
+        Thread.sleep(10000);
         ProductResultPage productResultPage = homePage.choseCategory();
         productResultPage.pageScroll();
         Thread.sleep(10000);
         //3. page is starting with 41. product
-        ProductDetailsPage productDetailsPage= productResultPage.viewProductDetails(45);
-        return new ProductDetailsPage(webDriver);
+        productResultPage.viewProductDetails(45);
+        Thread.sleep(2000);
     }
 
     @Test
     public void addToBasket() throws InterruptedException {
         HomePage homePage = this.uyeOlAndGoHome();
-        //HomePage homePage = new HomePage(webDriver);
+        Thread.sleep(10000);
         ProductResultPage productResultPage = homePage.choseCategory();
         productResultPage.pageScroll();
         Thread.sleep(10000);
-        //3. page is starting with 41. product
-        ProductDetailsPage productDetailsPage= productResultPage.viewProductDetails(43);
+        ProductDetailsPage productDetailsPage = productResultPage.viewProductDetails(45);
         productDetailsPage.AddToBasket();
         boolean addingControl = productDetailsPage.isAddedToBasketTitleDisplayed();
         assertThat("When user added product to basket, ", addingControl, is(equalTo(true)));
@@ -43,24 +41,20 @@ public class ProductTest extends BaseTest {
     @Test
     public void removeAddedProductFromBasket() throws InterruptedException {
         HomePage homePage = this.uyeOlAndGoHome();
-        //HomePage homePage = new HomePage(webDriver);
+        Thread.sleep(10000);
         ProductResultPage productResultPage = homePage.choseCategory();
         productResultPage.pageScroll();
         Thread.sleep(10000);
-        //3. page is starting with 41. product
-        ProductDetailsPage productDetailsPage= productResultPage.viewProductDetails(45);
-        Thread.sleep(2500);
+        ProductDetailsPage productDetailsPage = productResultPage.viewProductDetails(45);
         productDetailsPage.AddToBasket();
-        Thread.sleep(2500);
         boolean addingControl = productDetailsPage.isAddedToBasketTitleDisplayed();
         assertThat("When user added product to basket, ", addingControl, is(equalTo(true)));
         MyBasketPage myBasketPage = productDetailsPage.goToMyBasketPage();
         myBasketPage.isDisplayedAddedProduct();
         RemoveBasketForm removeBasketForm = myBasketPage.deleteProduct();
-        Thread.sleep(2500);
         removeBasketForm.productNameIsDisplayed();
         removeBasketForm.confirmRemove();
-        Thread.sleep(3000);
+        Thread.sleep(2000);
 
     }
 

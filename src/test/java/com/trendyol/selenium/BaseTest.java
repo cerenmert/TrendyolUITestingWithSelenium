@@ -17,6 +17,7 @@ import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
     WebDriver webDriver;
+    By closeModalBy = By.cssSelector(".fancybox-close");
 
     @BeforeMethod
     public void startUp() {
@@ -34,7 +35,7 @@ public class BaseTest {
         //implicitWait kullanımı çok fazla tavsiye edilmez, hatta Selenium geliştiricilerini keşke geliştirmeseydik dedikleri şey.
         //explicitWait tercih edilmeli.
         webDriver.get("https://www.trendyol.com/");
-        WebElement closeButton = webDriver.findElement(By.className("fancybox-close"));
+        WebElement closeButton = webDriver.findElement(closeModalBy);
         closeButton.click();
     }
 
@@ -52,9 +53,9 @@ public class BaseTest {
     public HomePage uyeOlAndGoHome() throws InterruptedException {
         HomePage homePage = new HomePage(webDriver);
         UyeOlPage x = homePage.getUyeOl();
-        User user= UserPool.getUser1();
+        User user = UserPool.getUser1();
         x.uyeOl(user);
-        Thread.sleep(10000);
+        //Thread.sleep(10000);
         homePage.closeModal();
         return new HomePage(webDriver);
     }
