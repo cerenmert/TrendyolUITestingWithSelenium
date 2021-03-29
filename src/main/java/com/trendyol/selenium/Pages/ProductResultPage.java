@@ -11,6 +11,7 @@ import java.util.Set;
 public class ProductResultPage extends BasePage {
 
     By productDetailBy = By.className("p-card-chldrn-cntnr");
+    By overlayBy= By.cssSelector(".overlay");
 
     public ProductResultPage(WebDriver webDriver) {
         super(webDriver);
@@ -21,6 +22,7 @@ public class ProductResultPage extends BasePage {
         JavascriptExecutor jse = (JavascriptExecutor) webDriver;
         jse.executeScript("window.scrollBy(0,2000)");
         Thread.sleep(2500);
+        closeOverlay();
         jse.executeScript("window.scrollBy(0,2000)");
         Thread.sleep(2500);
     }
@@ -37,6 +39,9 @@ public class ProductResultPage extends BasePage {
     public void switchWindow() {
         Set<String> windows = webDriver.getWindowHandles();
         webDriver.switchTo().window(windows.toArray()[windows.toArray().length - 1].toString());
+    }
+    public void closeOverlay(){
+        click(overlayBy,3);
     }
 
 }

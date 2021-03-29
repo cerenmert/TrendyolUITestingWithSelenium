@@ -28,7 +28,9 @@ public class UyeOlPage extends BasePage {
         webDriver.findElement(emailBy).sendKeys(user.getEmail());
         webDriver.findElement(passwordBy).sendKeys(user.getPassword());
         webDriver.findElement(submitButtonBy).click();
-        return new HomePage(webDriver);
+        HomePage homePage = new HomePage(webDriver);
+        homePage.waitForLoad();
+        return homePage;
     }
 
 

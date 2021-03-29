@@ -13,6 +13,7 @@ public class BasePage extends WebDriverHelper {
     By clickElectronicTab = By.cssSelector(".tab-link:nth-of-type(9) > .category-header");
     By tvGoruntuSesSistemleriBy = By.cssSelector(".tab-link:nth-of-type(9) > .sub-nav  .sub-nav-outer > div:nth-of-type(3) > div:nth-of-type(1) > .sub-category-header");
     By myBasketButtonBy = By.cssSelector(".link.account-basket");
+    By favButtonBy= By.cssSelector(".account-navigation-wrapper>a");
 
     public BasePage(WebDriver webDriver) {
         super(webDriver);
@@ -39,6 +40,11 @@ public class BasePage extends WebDriverHelper {
     public MyBasketPage goToMyBasketPage() {
         click(myBasketButtonBy, 2);
         return new MyBasketPage(webDriver);
+    }
+
+    public MyFavoritesPage goToMyFavoritesPage(){
+        webDriver.findElement(favButtonBy).click();
+        return new MyFavoritesPage(webDriver);
     }
 
 }

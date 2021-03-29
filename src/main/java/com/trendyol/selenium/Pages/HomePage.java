@@ -18,7 +18,7 @@ public class HomePage extends BasePage {
     }
 
     public void waitForLoad() {
-        WebDriverWait wait = new WebDriverWait(webDriver, 20);
+        WebDriverWait wait = new WebDriverWait(webDriver, 15);
         wait.until(ExpectedConditions.visibilityOfElementLocated(componentListBy));
     }
 
