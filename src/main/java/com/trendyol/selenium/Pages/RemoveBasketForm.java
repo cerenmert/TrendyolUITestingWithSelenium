@@ -3,6 +3,8 @@ package com.trendyol.selenium.Pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import java.time.Duration;
+
 public class RemoveBasketForm extends BasePage {
 
     By removeBasketFormBy = By.cssSelector(".ng-pristine.ng-valid");
@@ -14,13 +16,13 @@ public class RemoveBasketForm extends BasePage {
     }
 
     public boolean productNameIsDisplayed() {
-        isDisplayed(removeBasketFormBy,3);
-        isDisplayed(productName,3);
+        isDisplayed(removeBasketFormBy, Duration.ofSeconds(3));
+        isDisplayed(productName,Duration.ofSeconds(3));
         return true;
     }
 
     public void confirmRemove() {
-        click(deleteButtonOnTheFormPage,5);
+        click(deleteButtonOnTheFormPage,Duration.ofSeconds(5));
     }
 }
 

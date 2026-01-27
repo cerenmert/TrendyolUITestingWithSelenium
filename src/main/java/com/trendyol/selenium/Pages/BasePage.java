@@ -6,10 +6,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
+import java.time.Duration;
+
 public class BasePage extends WebDriverHelper {
 
-    By girisYapButtonBy = By.cssSelector(".account-user");
-    By uyeOlButtonBy = By.cssSelector(".signup-button");
+    By girisYapButtonBy = By.cssSelector(".user-wrapper.menu-item");
+    By uyeOlButtonBy = By.cssSelector(".login-register-wrapper");
     By clickElectronicTab = By.cssSelector(".tab-link:nth-of-type(9) > .category-header");
     By tvGoruntuSesSistemleriBy = By.cssSelector(".tab-link:nth-of-type(9) > .sub-nav  .sub-nav-outer > div:nth-of-type(3) > div:nth-of-type(1) > .sub-category-header");
     By myBasketButtonBy = By.cssSelector(".link.account-basket");
@@ -25,7 +27,7 @@ public class BasePage extends WebDriverHelper {
         Actions actions = new Actions(webDriver);
         actions.moveToElement(ele).perform();
         Thread.sleep(8000);
-        click(uyeOlButtonBy, 10);
+        click(uyeOlButtonBy, Duration.ofSeconds(10));
         return new UyeOlPage(webDriver);
     }
 
@@ -33,12 +35,12 @@ public class BasePage extends WebDriverHelper {
         WebElement elect = webDriver.findElement(clickElectronicTab);
         Actions actions = new Actions(webDriver);
         actions.moveToElement(elect).perform();
-        click(tvGoruntuSesSistemleriBy, 20);
+        click(tvGoruntuSesSistemleriBy,  Duration.ofSeconds(20));
         return new ProductResultPage(webDriver);
     }
 
     public MyBasketPage goToMyBasketPage() {
-        click(myBasketButtonBy, 2);
+        click(myBasketButtonBy,  Duration.ofSeconds(2));
         return new MyBasketPage(webDriver);
     }
 

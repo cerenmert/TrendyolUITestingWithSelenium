@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
+
 public class HomePage extends BasePage {
 
     By componentListBy = By.className("component-list");
@@ -18,12 +20,12 @@ public class HomePage extends BasePage {
     }
 
     public void waitForLoad() {
-        WebDriverWait wait = new WebDriverWait(webDriver, 15);
+        WebDriverWait wait = new WebDriverWait(webDriver,  Duration.ofSeconds(15));
         wait.until(ExpectedConditions.visibilityOfElementLocated(componentListBy));
     }
 
     public void closeModal() {
-        click(closeModalBy,10);
+        click(closeModalBy, Duration.ofSeconds(10));
     }
 
 }

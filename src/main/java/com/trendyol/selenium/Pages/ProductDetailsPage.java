@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.time.Duration;
 import java.util.List;
 
 public class ProductDetailsPage extends BasePage {
@@ -18,14 +19,14 @@ public class ProductDetailsPage extends BasePage {
     }
 
     public void AddToBasket() {
-       click(addToBasketBy,2);
+       click(addToBasketBy,Duration.ofSeconds(3));
     }
 
     public boolean isAddedToBasketTitleDisplayed() {
-        isDisplayed(addedToBasketBy,3);
+        isDisplayed(addedToBasketBy, Duration.ofSeconds(3));
         return true;
     }
     public void addMyFavoriteProduct() {
-        click(favoriteButtonBy,2);
+        click(favoriteButtonBy, Duration.ofSeconds(3));
     }
 }

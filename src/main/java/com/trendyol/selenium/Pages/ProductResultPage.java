@@ -5,6 +5,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.time.Duration;
 import java.util.List;
 import java.util.Set;
 
@@ -41,7 +42,7 @@ public class ProductResultPage extends BasePage {
         webDriver.switchTo().window(windows.toArray()[windows.toArray().length - 1].toString());
     }
     public void closeOverlay(){
-        click(overlayBy,3);
+        click(overlayBy, Duration.ofSeconds(3));
     }
 
 }

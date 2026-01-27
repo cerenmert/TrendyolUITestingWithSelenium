@@ -13,11 +13,11 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
-import java.util.concurrent.TimeUnit;
+import java.time.Duration;
 
 public class BaseTest {
     WebDriver webDriver;
-    By closeModalBy = By.cssSelector(".fancybox-close");
+    By closeModalBy = By.cssSelector(".modal-section-close");
 
     @BeforeMethod
     public void startUp() {
@@ -31,7 +31,7 @@ public class BaseTest {
         webDriver = new ChromeDriver(options);
         webDriver.manage().window().maximize();
 
-        webDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         //implicitWait kullanımı çok fazla tavsiye edilmez, hatta Selenium geliştiricilerini keşke geliştirmeseydik dedikleri şey.
         //explicitWait tercih edilmeli.
         webDriver.get("https://www.trendyol.com/");
