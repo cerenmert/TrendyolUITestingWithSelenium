@@ -1,7 +1,5 @@
 package com.trendyol.selenium.Users;
 
-import java.util.Random;
-
 public class UserPool {
 
     public static User getUser1() {

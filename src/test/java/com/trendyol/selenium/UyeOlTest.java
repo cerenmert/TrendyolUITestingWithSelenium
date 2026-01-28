@@ -12,7 +12,7 @@ public class UyeOlTest extends BaseTest {
     public void shouldUyeOl() throws InterruptedException {
         HomePage homePage = new HomePage(webDriver);
         UyeOlPage x = homePage.getUyeOl();
-        User user= UserPool.getUser1();
+        User user = UserPool.getUser1();
         x.uyeOl(user);
         homePage.closeModal();
         Thread.sleep(3000);

@@ -11,11 +11,13 @@ import java.time.Duration;
 public class BasePage extends WebDriverHelper {
 
     By girisYapButtonBy = By.cssSelector(".user-wrapper.menu-item");
-    By uyeOlButtonBy = By.cssSelector(".login-register-wrapper");
+    By uyeOlButtonBy = By.cssSelector(".signup-button, .register-btn");
     By clickElectronicTab = By.cssSelector(".tab-link:nth-of-type(9) > .category-header");
-    By tvGoruntuSesSistemleriBy = By.cssSelector(".tab-link:nth-of-type(9) > .sub-nav  .sub-nav-outer > div:nth-of-type(3) > div:nth-of-type(1) > .sub-category-header");
+    By tvGoruntuSesSistemleriBy = By.cssSelector(
+            ".tab-link:nth-of-type(9) > .sub-nav  .sub-nav-outer > div:nth-of-type(3) > div:nth-of-type(1) > .sub-category-header");
     By myBasketButtonBy = By.cssSelector(".link.account-basket");
-    By favButtonBy= By.cssSelector(".account-navigation-wrapper>a");
+    By favButtonBy = By.cssSelector(".account-navigation-wrapper>a");
+    By uyeOlTabBy = By.cssSelector("button.q-button.tab.right");
 
     public BasePage(WebDriver webDriver) {
         super(webDriver);
@@ -28,6 +30,7 @@ public class BasePage extends WebDriverHelper {
         actions.moveToElement(ele).perform();
         Thread.sleep(8000);
         click(uyeOlButtonBy, Duration.ofSeconds(10));
+        click(uyeOlTabBy, Duration.ofSeconds(2));
         return new UyeOlPage(webDriver);
     }
 
@@ -35,16 +38,16 @@ public class BasePage extends WebDriverHelper {
         WebElement elect = webDriver.findElement(clickElectronicTab);
         Actions actions = new Actions(webDriver);
         actions.moveToElement(elect).perform();
-        click(tvGoruntuSesSistemleriBy,  Duration.ofSeconds(20));
+        click(tvGoruntuSesSistemleriBy, Duration.ofSeconds(20));
         return new ProductResultPage(webDriver);
     }
 
     public MyBasketPage goToMyBasketPage() {
-        click(myBasketButtonBy,  Duration.ofSeconds(2));
+        click(myBasketButtonBy, Duration.ofSeconds(2));
         return new MyBasketPage(webDriver);
     }
 
-    public MyFavoritesPage goToMyFavoritesPage(){
+    public MyFavoritesPage goToMyFavoritesPage() {
         webDriver.findElement(favButtonBy).click();
         return new MyFavoritesPage(webDriver);
     }

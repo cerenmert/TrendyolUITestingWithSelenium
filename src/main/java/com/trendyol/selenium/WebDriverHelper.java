@@ -25,7 +25,6 @@ public class WebDriverHelper {
         wait.until(ExpectedConditions.elementToBeClickable(byElement)).isDisplayed();
     }
 
-
     public void sendKeys(By byElement, String text) {
         WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(20));
         wait.until(ExpectedConditions.elementToBeClickable(byElement)).sendKeys(text);
